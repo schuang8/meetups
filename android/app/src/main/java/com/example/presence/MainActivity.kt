@@ -7,6 +7,8 @@ import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
 import androidx.compose.material3.*
+import androidx.compose.material3.TopAppBar
+import androidx.compose.material3.TopAppBarDefaults
 import androidx.compose.runtime.*
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.text.font.FontWeight
@@ -15,6 +17,7 @@ import com.example.presence.data.MockRepository
 import com.example.presence.ui.PlaceCard
 
 class MainActivity : ComponentActivity() {
+    @OptIn(ExperimentalMaterial3Api::class)
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContent {
@@ -23,7 +26,11 @@ class MainActivity : ComponentActivity() {
                     val repo = remember { MockRepository() }
                     val items by remember { mutableStateOf(repo.getNearby()) }
                     Scaffold(
-                        topBar = { SmallTopAppBar(title = { Text("Friends Near You") }) }
+                        topBar = { TopAppBar(
+                            title = { Text("Friends Near You") }
+                                // optional:
+                                // colors = TopAppBarDefaults.topAppBarColors()
+                        )}
                     ) { padding ->
                         LazyColumn(
                             modifier = Modifier
