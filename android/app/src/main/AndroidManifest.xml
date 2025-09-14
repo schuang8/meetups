@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.presence">
-
+    <uses-permission android:name="android.permission.INTERNET" />
     <application
+        android:name="com.example.presence.PresenceApp"
         android:allowBackup="true"
         android:label="Presence Starter"
         android:theme="@style/Theme.PresenceStarter">
@@ -14,5 +15,12 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <meta-data
+            android:name="com.google.android.geo.API_KEY"
+            android:value="<YOUR_API_KEY>" />
+        <meta-data
+            android:name="com.google.android.gms.version"
+            android:value="@integer/google_play_services_version" />
+
     </application>
 </manifest>
