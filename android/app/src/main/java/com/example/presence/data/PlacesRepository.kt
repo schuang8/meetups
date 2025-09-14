@@ -12,20 +12,6 @@ import kotlinx.coroutines.suspendCancellableCoroutine
 import kotlin.coroutines.resume
 import kotlin.coroutines.resumeWithException
 
-data class PlaceSuggestion(
-    val placeId: String,
-    val primaryText: String,
-    val secondaryText: String?
-)
-
-data class PlaceDetails(
-    val placeId: String,
-    val name: String,
-    val address: String?,
-    val lat: Double,
-    val lng: Double
-)
-
 class PlacesRepository(context: Context) {
     private val client: PlacesClient = Places.createClient(context.applicationContext)
 

@@ -31,3 +31,4 @@ captures/
 # Secrets
 **/google-services.json
 **/AndroidManifest.xml
+android/app/src/main/AndroidManifest.xml
